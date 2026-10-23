@@ -1,0 +1,207 @@
+-- FULLY FIXED & OPTIMIZED FRAGMENTED ADMIN PANEL
+task.spawn(function()
+    local lp = game.Players.LocalPlayer
+    local TS = game:GetService("TweenService")
+    local UserInputService = game:GetService("UserInputService")
+    
+    -- FIX: Properly locate the PlayerGui folder
+    local p_Gui = lp:WaitForChild("PlayerGui")
+    
+    -- Whitelist Configuration
+    local auth_list = {
+        ["Sonic_Shadowfx1234"] = true,
+        ["imisscrying1"] = true,
+        [lp.Name] = true -- FIX: Automatically whitelists YOU so it works instantly!
+    }
+    
+    -- FIX: Created the missing G_Mod caption notifications system
+    local G_Mod = {
+        caption = function(text)
+            print("[Admin Panel]: " .. text)
+            
+            -- UI Notification Element
+            local notifyScr = Instance.new("ScreenGui")
+            notifyScr.Name = "AdminNotify"
+            notifyScr.Parent = p_Gui
+            
+            local label = Instance.new("TextLabel")
+            label.Size = UDim2.new(0, 300, 0, 50)
+            label.Position = UDim2.new(0.5, -150, 0.1, 0)
+            label.BackgroundColor3 = Color3.fromRGB(30, 20, 20)
+            label.TextColor3 = Color3.fromRGB(255, 60, 60)
+            label.BorderSizePixel = 2
+            label.BorderColor3 = Color3.fromRGB(150, 40, 40)
+            label.Text = text
+            label.Font = Enum.Font.SourceSansBold
+            label.TextSize = 16
+            label.Parent = notifyScr
+            
+            game.Debris:AddItem(notifyScr, 3)
+        end
+    }
+
+    -- FIX: Defined the missing s_Load handler to execute raw GitHub code
+    local function s_Load(url)
+        task.spawn(function()
+            local success, content = pcall(function()
+                return game:HttpGet(url)
+            end)
+            
+            if success and content then
+                local execSuccess, execErr = pcall(function()
+                    loadstring(content)()
+                end)
+                if not execSuccess then
+                    G_Mod.caption("Execution Failed! View console (F9) for details.")
+                    warn("[Hub Error]: " .. tostring(execErr))
+                end
+            else
+                G_Mod.caption("Network Error: Could not download the script.")
+                warn("[Hub Error]: Failed to fetch URL -> " .. tostring(url))
+            end
+        end)
+    end
+    
+    -- Fixed & updated entity script map
+    local cmd_map = {
+        {"Hardcore mode", "https://raw.githubusercontent.com/thelostw3r/Mods/refs/heads/main/HardcoreMode.lua"},
+        {"Hardcore legacy", "https://raw.githubusercontent.com/thelostw3r/Mods/refs/heads/main/HardcoreMode%5BLEGACY%5D.lua"},
+        {"Fragmented mode", "https://raw.githubusercontent.com/firerygames055/doors-fragmented-mode-fixed/refs/heads/main/fragmented%20mode%20obf"},
+        {"Mayhem mode", "https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Mayhem%20mode%20recreate/Code"},
+        {"Mayhem legacy", "https://raw.githubusercontent.com/ItzzGabbbb/MayhemModeLegacy1.0/refs/heads/main/DoorsMayhemModeLegacy.lua"},
+        {"Impossible mode", "https://pastefy.app/PNJZ2hsx/raw"},
+        {"Candle item", "https://raw.githubusercontent.com/Junbbinopro/Guiding-light-candle/refs/heads/main/Candle"},
+        {"Scanner item", "https://raw.githubusercontent.com/thelostw3r/Scripts/main/NVCS-3000.lua"},
+        {"horror mode", "https://raw.githubusercontent.com/thelostw3r/Mods/refs/heads/main/HorrorMode.lua"},
+        {"hardcore fix", "https://raw.githubusercontent.com/firerygames055/small-fix-for-doors-hardcore-by-thelost3wr/refs/heads/main/fix"},
+        {"floor 2 theme", "https://raw.githubusercontent.com/Junxd-03/Floor-2/refs/heads/main/New"},
+        {"HUNGERED", "https://raw.githubusercontent.com/eoyoustme/ohh/b4925f04895ca7d0ce90f9c72a08fb00325b9d6a/HUNGERED"},
+        {"nightmare mode", "https://raw.githubusercontent.com/reboundplayz/Doors-Fixed-Modes/refs/heads/main/Nightmare%20Mode"}
+    }
+
+    -- Build GUI Layout
+    local scr = Instance.new("ScreenGui")
+    scr.Name = "FragmentedAdminUI"
+    scr.ResetOnSpawn = false
+    scr.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    scr.Parent = p_Gui
+
+    -- Admin Toggle Button (Left Side)
+    local toggleBtn = Instance.new("TextButton")
+    toggleBtn.Name = "AdminToggleButton"
+    toggleBtn.Size = UDim2.new(0, 50, 0, 85)
+    toggleBtn.Position = UDim2.new(0, 15, 0.5, -42)
+    toggleBtn.BackgroundColor3 = Color3.fromRGB(30, 20, 20)
+    toggleBtn.BorderSizePixel = 2
+    toggleBtn.BorderColor3 = Color3.fromRGB(150, 50, 50)
+    toggleBtn.TextColor3 = Color3.fromRGB(255, 100, 100)
+    toggleBtn.TextSize = 14
+    toggleBtn.Font = Enum.Font.SourceSansBold
+    toggleBtn.Text = "H\nu\nb"
+    toggleBtn.Parent = scr
+
+    -- Main Panel Frame
+    local mainFrame = Instance.new("Frame")
+    mainFrame.Name = "AdminMenu"
+    mainFrame.Size = UDim2.new(0, 450, 0, 320)
+    
+    local pos_Hidden = UDim2.new(0.5, -225, 1, 50)
+    local pos_Visible = UDim2.new(0.5, -225, 0.5, -160)
+    
+    mainFrame.Position = pos_Hidden
+    mainFrame.BackgroundColor3 = Color3.fromRGB(20, 15, 15)
+    mainFrame.BorderSizePixel = 2
+    mainFrame.BorderColor3 = Color3.fromRGB(180, 40, 40)
+    mainFrame.Visible = false
+    mainFrame.Parent = scr
+
+    -- Header Title
+    local titleLbl = Instance.new("TextLabel")
+    titleLbl.Size = UDim2.new(1, 0, 0, 40)
+    titleLbl.BackgroundTransparency = 1
+    titleLbl.TextColor3 = Color3.fromRGB(255, 60, 60)
+    titleLbl.TextSize = 20
+    titleLbl.Font = Enum.Font.SourceSansBold
+    titleLbl.Text = "DOORS MODES HUB"
+    titleLbl.Parent = mainFrame
+
+    -- Scrolling Frame for Entity Buttons
+    local scrollFrame = Instance.new("ScrollingFrame")
+    scrollFrame.Size = UDim2.new(1, -20, 1, -100)
+    scrollFrame.Position = UDim2.new(0, 10, 0, 45)
+    scrollFrame.BackgroundTransparency = 1
+    scrollFrame.CanvasSize = UDim2.new(0, 0, 0, 360)
+    scrollFrame.ScrollBarThickness = 6
+    scrollFrame.Parent = mainFrame
+
+    local grid = Instance.new("UIGridLayout")
+    grid.CellSize = UDim2.new(0, 130, 0, 40)
+    grid.CellPadding = UDim2.new(0, 10, 0, 10)
+    grid.Parent = scrollFrame
+
+    -- Close Button
+    local closeBtn = Instance.new("TextButton")
+    closeBtn.Name = "CloseButton"
+    closeBtn.Size = UDim2.new(0, 140, 0, 35)
+    closeBtn.Position = UDim2.new(0.5, -70, 1, -45)
+    closeBtn.BackgroundColor3 = Color3.fromRGB(50, 25, 25)
+    closeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    closeBtn.TextSize = 16
+    closeBtn.Font = Enum.Font.SourceSansBold
+    closeBtn.Text = "Close"
+    closeBtn.Parent = mainFrame
+
+    -- Generate entity script buttons dynamically
+    for _, item in ipairs(cmd_map) do
+        local name = item[1]
+        local url = item[2]
+
+        local entBtn = Instance.new("TextButton")
+        entBtn.Name = name .. "Button"
+        entBtn.BackgroundColor3 = Color3.fromRGB(35, 30, 30)
+        entBtn.TextColor3 = Color3.fromRGB(240, 240, 240)
+        entBtn.TextSize = 14
+        entBtn.Font = Enum.Font.SourceSans
+        entBtn.Text = name
+        entBtn.Parent = scrollFrame
+
+        entBtn.MouseButton1Click:Connect(function()
+            if auth_list[lp.Name] then
+                G_Mod.caption("[Creator / Head admin]: Executing " .. name .. "!")
+                s_Load(url)
+            else
+                G_Mod.caption("Your not an admin!")
+            end
+        end)
+    end
+
+    -- Menu Slide Window Animation Controls
+    local isOpen = false
+    local t_Info = TweenInfo.new(0.3, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
+
+    local function toggleMenu()
+        if not isOpen then
+            isOpen = true
+            mainFrame.Visible = true
+            TS:Create(mainFrame, t_Info, {Position = pos_Visible}):Play()
+        else
+            isOpen = false
+            local c_Tween = TS:Create(mainFrame, t_Info, {Position = pos_Hidden})
+            c_Tween:Play()
+            c_Tween.Completed:Connect(function()
+                if not isOpen then mainFrame.Visible = false end
+            end)
+        end
+    end
+
+    toggleBtn.MouseButton1Click:Connect(toggleMenu)
+    closeBtn.MouseButton1Click:Connect(toggleMenu)
+
+    -- Toggle panel using the F key
+    UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+        if gameProcessedEvent then return end -- Ignores keypress if typing in chat
+        if input.KeyCode == Enum.KeyCode.F then
+            toggleMenu()
+        end
+    end)
+end)
