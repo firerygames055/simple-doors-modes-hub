@@ -167,7 +167,7 @@ task.spawn(function()
 
         entBtn.MouseButton1Click:Connect(function()
             if auth_list[lp.Name] then
-                G_Mod.caption("[Creator / Head admin]: Executing " .. name .. "!")
+                G_Mod.caption("Executing " .. name .. "!")
                 s_Load(url)
             else
                 G_Mod.caption("Your not an admin!")
