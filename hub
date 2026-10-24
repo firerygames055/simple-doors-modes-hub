@@ -1,4 +1,4 @@
--- FULLY FIXED & OPTIMIZED FRAGMENTED ADMIN PANEL
+-- DOORS MODES HUB
 task.spawn(function()
     local lp = game.Players.LocalPlayer
     local TS = game:GetService("TweenService")
