@@ -72,11 +72,23 @@ task.spawn(function()
         {"Impossible mode", "https://pastefy.app/PNJZ2hsx/raw"},
         {"Candle item", "https://raw.githubusercontent.com/Junbbinopro/Guiding-light-candle/refs/heads/main/Candle"},
         {"Scanner item", "https://raw.githubusercontent.com/thelostw3r/Scripts/main/NVCS-3000.lua"},
-        {"horror mode", "https://raw.githubusercontent.com/thelostw3r/Mods/refs/heads/main/HorrorMode.lua"},
-        {"hardcore fix", "https://raw.githubusercontent.com/firerygames055/small-fix-for-doors-hardcore-by-thelost3wr/refs/heads/main/fix"},
-        {"floor 2 theme", "https://raw.githubusercontent.com/Junxd-03/Floor-2/refs/heads/main/New"},
+        {"Horror mode", "https://raw.githubusercontent.com/thelostw3r/Mods/main/HorrorMode.lua"},
+        {"Hardcore fix", "https://raw.githubusercontent.com/firerygames055/small-fix-for-doors-hardcore-by-thelost3wr/refs/heads/main/fix"},
+        {"Floor 2 theme", "https://raw.githubusercontent.com/Junxd-03/Floor-2/refs/heads/main/New"},
         {"HUNGERED", "https://raw.githubusercontent.com/eoyoustme/ohh/b4925f04895ca7d0ce90f9c72a08fb00325b9d6a/HUNGERED"},
-        {"nightmare mode", "https://raw.githubusercontent.com/reboundplayz/Doors-Fixed-Modes/refs/heads/main/Nightmare%20Mode"}
+        {"Nightmare mode", "https://raw.githubusercontent.com/reboundplayz/Doors-Fixed-Modes/refs/heads/main/Nightmare%20Mode"},
+        {"Creepy mode", "https://raw.githubusercontent.com/DripCapybara/Doors-Modes/refs/heads/main/CreepyMode/ObfuscatedMain.lua"},
+        {"Forgotten mode", "https://pastebin.com/raw/Wy7PSxjz"},
+        {"Crazy mode", "https://raw.githubusercontent.com/FenzerPlayerPressure/Recreates/refs/heads/main/Crazy%20Mode.Lua"},
+        {"Extreme mode" "https://raw.githubusercontent.com/GuestlyTheGreatestGuest/Modes/refs/heads/main/Extreme-Mode-Recreated-made-by-Guestly"},
+        {"Nullfire" "https://raw.githubusercontent.com/NuIlFire/NullFire/main/loader.lua"},
+        {"Insane mode" "https://raw.githubusercontent.com/TheDarkMan1334/Insane-mode/refs/heads/main/Insane%20Mode"},
+        {"Hardcore remade" "https://raw.githubusercontent.com/GuestlyTheGreatestGuest/Modes/main/Hardcore-Mode-Re-Remastered-Made-By-Guestly-Vuivuiviu2-Nowhywhat-Voorpr0},
+        {"Fear mode" "https://raw.githubusercontent.com/rrealblueyt-oss/Fearmode-/refs/heads/main/Fearmodereamake.txt"},
+        {"Sprint stamina" "https://raw.githubusercontent.com/Sc-Rhyan57/MsProject/refs/heads/main/projects/DOORS-SPRINT.lua"},
+        {"LOL HAX DOORS" "https://raw.githubusercontent.com/Robloxexploiterz/Release-Lolhax/refs/heads/main/LX%20Doors%20v3.lua"},
+        {"Him spawner" "https://raw.githubusercontent.com/idkman60093/Doors-Modes/refs/heads/main/Idk"},
+        {Golden flashlight" "https://raw.githubusercontent.com/aadyian9000/the-thing/main/GoldenGummyFlashlight.lua"}
     }
 
     -- Build GUI Layout
