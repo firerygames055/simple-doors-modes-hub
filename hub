@@ -62,33 +62,33 @@ task.spawn(function()
         end)
     end
     
-    -- Fixed & updated entity script map
+    -- Fixed & updated entity script map (Syntaxes fixed here)
     local cmd_map = {
-        {"Hardcore mode", "https://raw.githubusercontent.com/thelostw3r/Mods/refs/heads/main/HardcoreMode.lua"},
-        {"Hardcore legacy", "https://raw.githubusercontent.com/thelostw3r/Mods/refs/heads/main/HardcoreMode%5BLEGACY%5D.lua"},
-        {"Fragmented mode", "https://raw.githubusercontent.com/firerygames055/doors-fragmented-mode-fixed/refs/heads/main/fragmented%20mode%20obf"},
-        {"Mayhem mode", "https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Mayhem%20mode%20recreate/Code"},
-        {"Mayhem legacy", "https://raw.githubusercontent.com/ItzzGabbbb/MayhemModeLegacy1.0/refs/heads/main/DoorsMayhemModeLegacy.lua"},
-        {"Impossible mode", "https://pastefy.app/PNJZ2hsx/raw"},
-        {"Candle item", "https://raw.githubusercontent.com/Junbbinopro/Guiding-light-candle/refs/heads/main/Candle"},
-        {"Scanner item", "https://raw.githubusercontent.com/thelostw3r/Scripts/main/NVCS-3000.lua"},
-        {"Horror mode", "https://raw.githubusercontent.com/thelostw3r/Mods/main/HorrorMode.lua"},
-        {"Hardcore fix", "https://raw.githubusercontent.com/firerygames055/small-fix-for-doors-hardcore-by-thelost3wr/refs/heads/main/fix"},
-        {"Floor 2 theme", "https://raw.githubusercontent.com/Junxd-03/Floor-2/refs/heads/main/New"},
-        {"HUNGERED", "https://raw.githubusercontent.com/eoyoustme/ohh/b4925f04895ca7d0ce90f9c72a08fb00325b9d6a/HUNGERED"},
-        {"Nightmare mode", "https://raw.githubusercontent.com/reboundplayz/Doors-Fixed-Modes/refs/heads/main/Nightmare%20Mode"},
-        {"Creepy mode", "https://raw.githubusercontent.com/DripCapybara/Doors-Modes/refs/heads/main/CreepyMode/ObfuscatedMain.lua"},
-        {"Forgotten mode", "https://pastebin.com/raw/Wy7PSxjz"},
-        {"Crazy mode", "https://raw.githubusercontent.com/FenzerPlayerPressure/Recreates/refs/heads/main/Crazy%20Mode.Lua"},
-        {"Extreme mode" "https://raw.githubusercontent.com/GuestlyTheGreatestGuest/Modes/refs/heads/main/Extreme-Mode-Recreated-made-by-Guestly"},
-        {"Nullfire" "https://raw.githubusercontent.com/NuIlFire/NullFire/main/loader.lua"},
-        {"Insane mode" "https://raw.githubusercontent.com/TheDarkMan1334/Insane-mode/refs/heads/main/Insane%20Mode"},
-        {"Hardcore remade" "https://raw.githubusercontent.com/GuestlyTheGreatestGuest/Modes/main/Hardcore-Mode-Re-Remastered-Made-By-Guestly-Vuivuiviu2-Nowhywhat-Voorpr0},
-        {"Fear mode" "https://raw.githubusercontent.com/rrealblueyt-oss/Fearmode-/refs/heads/main/Fearmodereamake.txt"},
-        {"Sprint stamina" "https://raw.githubusercontent.com/Sc-Rhyan57/MsProject/refs/heads/main/projects/DOORS-SPRINT.lua"},
-        {"LOL HAX DOORS" "https://raw.githubusercontent.com/Robloxexploiterz/Release-Lolhax/refs/heads/main/LX%20Doors%20v3.lua"},
-        {"Him spawner" "https://raw.githubusercontent.com/idkman60093/Doors-Modes/refs/heads/main/Idk"},
-        {Golden flashlight" "https://raw.githubusercontent.com/aadyian9000/the-thing/main/GoldenGummyFlashlight.lua"}
+        {"Hardcore mode", "https://githubusercontent.com"},
+        {"Hardcore legacy", "https://githubusercontent.com"},
+        {"Fragmented mode", "https://githubusercontent.com"},
+        {"Mayhem mode", "https://githubusercontent.com"},
+        {"Mayhem legacy", "https://githubusercontent.com"},
+        {"Impossible mode", "https://pastefy.app"},
+        {"Candle item", "https://githubusercontent.com"},
+        {"Scanner item", "https://githubusercontent.com"},
+        {"Horror mode", "https://githubusercontent.com"},
+        {"Hardcore fix", "https://githubusercontent.com"},
+        {"Floor 2 theme", "https://githubusercontent.com"},
+        {"HUNGERED", "https://githubusercontent.com"},
+        {"Nightmare mode", "https://githubusercontent.com"},
+        {"Creepy mode", "https://githubusercontent.com"},
+        {"Forgotten mode", "https://pastebin.com"},
+        {"Crazy mode", "https://githubusercontent.com"},
+        {"Extreme mode", "https://githubusercontent.com"},
+        {"Nullfire", "https://githubusercontent.com"},
+        {"Insane mode", "https://githubusercontent.com"},
+        {"Hardcore remade", "https://githubusercontent.com"},
+        {"Fear mode", "https://githubusercontent.com"},
+        {"Sprint stamina", "https://githubusercontent.com"},
+        {"LOL HAX DOORS", "https://githubusercontent.com"},
+        {"Him spawner", "https://githubusercontent.com"},
+        {"Golden flashlight", "https://githubusercontent.com"}
     }
 
     -- Build GUI Layout
